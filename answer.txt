@@ -1,0 +1,29 @@
+6.1
+1. Chuyện gì sẽ xảy ra nếu ta bấm vào nút cancel
+- Kết quả: Sẽ hiện ra message thông báo: You've chosen: No.
+- Nguyên nhân: điều kiện option==JOptionPane.YES_OPTION sai
+
+2. Cách tùy chỉnh các tùy chọn cho người dùng, ví dụ chỉ có hai tùy chọn: “Yes” và “No”, HOẶC “I do” và “I don't” (Gợi ý: Sử dụng Javadocs hoặc sử dụng trợ giúp Eclipse/Netbean IDE).
+
+=> đổi showConFirmDialog thành showOptionDialog
+- Đổi thành Yes và No: 
+import javax.swing.JOptionPane;
+public class ChoosingOption {
+	public static void main(String[] args) {
+		Object[] options = {"Yes", "No"}; 
+		int option = JOptionPane.showOptionDialog(null, "Do you want to change to the first class ticket?", "Choose Option",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,options[0]);
+		JOptionPane.showMessageDialog(null, "You've chosen: " + (option == JOptionPane.YES_OPTION ? "Yes" : "No"));
+		System.exit(0);
+	}
+}
+
+- Đổi thành I do và I don't: 
+import javax.swing.JOptionPane;
+public class ChoosingOption {
+	public static void main(String[] args) {
+		Object[] options = {"I do", "I don't"}; 
+		int option = JOptionPane.showOptionDialog(null, "Do you want to change to the first class ticket?", "Choose Option",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options,options[0]);
+		JOptionPane.showMessageDialog(null, "You've chosen: " + (option == JOptionPane.YES_OPTION ? "I do" : "I don't"));
+		System.exit(0);
+	}
+}
